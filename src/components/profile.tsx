@@ -9,6 +9,6 @@ export default function Profile() {
         return <p>{JSON.stringify(session.data.user)}</p>
     }
     else {
-        return <p>cout</p>
+        return <p>signed out</p>
     }
 }
