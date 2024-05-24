@@ -1,5 +1,3 @@
-"use server";
-
 export { signIn } from "./signIn";
 export { signOut } from "./signOut";
 export { createComment } from "./createComment";
