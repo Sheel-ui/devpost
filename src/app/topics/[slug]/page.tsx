@@ -1,7 +1,5 @@
 import PostCreate from "@/components/posts/postCreate";
 
-
-
 interface TopicProps {
 	params: {
 		slug: string;
@@ -16,8 +14,8 @@ export default async function Topics({ params }: TopicProps) {
 				<h1 className="text-2xl font-bold mb-2">{slug}</h1>
 			</div>
 			<div>
-        <PostCreate />
-      </div>
+				<PostCreate slug={slug} />
+			</div>
 		</div>
 	);
 }

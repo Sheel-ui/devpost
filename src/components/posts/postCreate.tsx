@@ -12,10 +12,18 @@ import {
 	PopoverTrigger,
 } from "@nextui-org/react";
 
-export default function PostCreate() {
-	const [formState, action] = useFormState(actions.createPost, {
-		errors: {},
-	});
+interface PostCreateFormProps {
+	slug: string;
+}
+
+export default function PostCreate({ slug }: PostCreateFormProps) {
+	const [formState, action] = useFormState(
+		actions.createPost.bind(null, slug),
+		{
+			errors: {},
+		}
+	);
+
 	return (
 		<Popover placement="left">
 			<PopoverTrigger>
