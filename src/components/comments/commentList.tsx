@@ -3,23 +3,17 @@ import type { CommentWithAuthor } from "@/db/queries/comments";
 import { fetchCommentsByPostId } from "@/db/queries/comments";
 
 interface CommentListProps {
-	fetchData: () => Promise<CommentWithAuthor[]>;
+	id: string;
 }
 
-export default async function CommentList({ fetchData }: CommentListProps) {
-	const comments = await fetchData();
+export default async function CommentList({ id }: CommentListProps) {
+	const comments = await fetchCommentsByPostId(id);
 	const topLevelComments = comments.filter(
 		(comment) => comment.parentId === null
 	);
 
 	const renderedComments = topLevelComments.map((comment) => {
-		return (
-			<CommentShow
-				key={comment.id}
-				commentId={comment.id}
-				comments={comments}
-			/>
-		);
+		return <CommentShow key={comment.id} commentId={comment.id} id={id} />;
 	});
 
 	return (
