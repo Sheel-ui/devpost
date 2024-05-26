@@ -1,5 +1,6 @@
 import { db } from "@/db";
 import { notFound } from "next/navigation";
+import { resolve } from "path";
 
 interface PostShowProps {
 	id: string;
