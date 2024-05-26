@@ -1,3 +1,4 @@
+export { search } from "./search";
 export { signIn } from "./signIn";
 export { signOut } from "./signOut";
 export { createComment } from "./createComment";
