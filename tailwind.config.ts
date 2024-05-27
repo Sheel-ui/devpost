@@ -40,7 +40,7 @@ const config: Config = {
           colors: {
             success: {
               foreground: "#FFFFFF",
-              DEFAULT: "#FF4ECD",
+              DEFAULT: "#8d96a0",
             }
           },
         },

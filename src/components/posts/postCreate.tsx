@@ -47,6 +47,7 @@ export default function PostCreate({ slug }: PostCreateFormProps) {
 							name="title"
 							placeholder="Title"
 							variant="bordered"
+							color="success"
 						/>
 						<Textarea
 							isInvalid={!!formState.errors.content}
@@ -54,6 +55,7 @@ export default function PostCreate({ slug }: PostCreateFormProps) {
 							name="content"
 							placeholder="Content"
 							variant="bordered"
+							color="success"
 						/>
 
 						{formState.errors._form ? (

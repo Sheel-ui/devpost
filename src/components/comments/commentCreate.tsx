@@ -42,23 +42,8 @@ export default function CommentCreateForm({
 					placeholder="Enter your comment"
 					isInvalid={!!formState.errors.content}
 					errorMessage={formState.errors.content?.join(", ")}
-					classNames={{
-						input: [
-							"bg-dark-500",
-							"text-white",
-							"placeholder:text-grey-100",
-							"hover:bg-dark-500", // Ensure no hover effect on input
-							"focus:bg-dark-500", // Ensure no focus effect on input
-						],
-						innerWrapper: "bg-dark-500",
-						inputWrapper: [
-							"bg-dark-500",
-							"hover:bg-dark-500", // Ensure no hover effect on input wrapper
-							"group-data-[focus=true]:bg-dark-500", // Ensure no focus effect on input wrapper
-						],
-					}}
-					// variant="bordered"
-					color="primary"
+					variant="bordered"
+					color="success"
 				/>
 
 				{formState.errors._form ? (
@@ -66,13 +51,6 @@ export default function CommentCreateForm({
 						{formState.errors._form?.join(", ")}
 					</div>
 				) : null}
-
-				{/* <Button
-					variant="bordered"
-					className="border-2 text-accent-100 border-accent-100"
-				>
-					Reply
-				</Button> */}
 				<FormButton>Reply</FormButton>
 			</div>
 		</form>

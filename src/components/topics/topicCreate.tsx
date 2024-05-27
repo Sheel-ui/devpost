@@ -40,6 +40,7 @@ export default function TopicCreate() {
 							isInvalid={!!formState.errors.name}
 							errorMessage={formState.errors.name?.join(", ")}
 							variant="bordered"
+							color="success"
 						/>
 						<Textarea
 							name="description"
@@ -49,6 +50,7 @@ export default function TopicCreate() {
 								", "
 							)}
 							variant="bordered"
+							color="success"
 						/>
 						{formState.errors._form ? (
 							<div className="p-2 bg-red-200 border border-red-400 rounded text-red-400">
