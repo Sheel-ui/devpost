@@ -23,7 +23,7 @@ export default async function CommentShow({ commentId, id }: CommentShowProps) {
 	});
 
 	return (
-		<div className="p-4 border mt-2 mb-1">
+		<div className="px-4 pt-2 border-l-2  border-dark-500 m-2 mb-1">
 			<div className="flex gap-3">
 				<Image
 					src={comment.user.image || ""}
@@ -32,11 +32,11 @@ export default async function CommentShow({ commentId, id }: CommentShowProps) {
 					height={40}
 					className="w-10 h-10 rounded-full"
 				/>
-				<div className="flex-1 space-y-3">
-					<p className="text-sm font-medium text-gray-500">
+				<div className="flex-1">
+					<p className="text-xs font-medium text-gray-400">
 						{comment.user.name}
 					</p>
-					<p className="text-gray-900">{comment.content}</p>
+					<p className="text-sm">{comment.content}</p>
 
 					<CommentCreate id={comment.postId} parentId={comment.id} />
 				</div>

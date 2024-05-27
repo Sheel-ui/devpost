@@ -19,16 +19,20 @@ export default async function PostShowPage({ params }: PostShowPageProps) {
 
 	return (
 		<div className="space-y-3">
+			{"< "}
 			<Link
-				className="underline decoration-solid"
+				className="underline decoration-solid text-sm"
 				href={paths.topicShow(slug)}
 			>
-				{"< "}Back to {slug}
+				Back to {slug}
 			</Link>
-      <Suspense fallback={<PostShowLoad />}>
-			<PostShow id={id} />
-      </Suspense>
+			<div className="border border-dark-500 rounded-xl p-4 px-3">
+			<Suspense fallback={<PostShowLoad />}>
+				<PostShow id={id} />
+			</Suspense>
 			<CommentCreate id={id} startOpen />
+			</div>
+
 			<CommentList id={id} />
 		</div>
 	);

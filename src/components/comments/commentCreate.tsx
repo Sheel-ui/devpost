@@ -36,14 +36,29 @@ export default function CommentCreateForm({
 
 	const form = (
 		<form action={action} ref={ref}>
-			<div className="space-y-2 px-1">
+			<div className="space-y-3 px-1">
 				<Textarea
 					name="content"
-					label="Reply"
-					labelPlacement="inside"
 					placeholder="Enter your comment"
 					isInvalid={!!formState.errors.content}
 					errorMessage={formState.errors.content?.join(", ")}
+					classNames={{
+						input: [
+							"bg-dark-500",
+							"text-white",
+							"placeholder:text-grey-100",
+							"hover:bg-dark-500", // Ensure no hover effect on input
+							"focus:bg-dark-500", // Ensure no focus effect on input
+						],
+						innerWrapper: "bg-dark-500",
+						inputWrapper: [
+							"bg-dark-500",
+							"hover:bg-dark-500", // Ensure no hover effect on input wrapper
+							"group-data-[focus=true]:bg-dark-500", // Ensure no focus effect on input wrapper
+						],
+					}}
+					// variant="bordered"
+					color="primary"
 				/>
 
 				{formState.errors._form ? (
@@ -52,14 +67,25 @@ export default function CommentCreateForm({
 					</div>
 				) : null}
 
-				<FormButton>Create Comment</FormButton>
+				{/* <Button
+					variant="bordered"
+					className="border-2 text-accent-100 border-accent-100"
+				>
+					Reply
+				</Button> */}
+				<FormButton>Reply</FormButton>
 			</div>
 		</form>
 	);
 
 	return (
 		<div>
-			<Button size="sm" variant="light" onClick={() => setOpen(!open)}>
+			<Button
+				size="sm"
+				variant="light"
+				className="bg-dark-900 text-gray-400 mt-2"
+				onClick={() => setOpen(!open)}
+			>
 				Reply
 			</Button>
 			{open && form}

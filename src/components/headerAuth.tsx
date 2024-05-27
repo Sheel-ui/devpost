@@ -6,32 +6,33 @@ import {
 	Avatar,
 	Popover,
 	PopoverTrigger,
-	PopoverContent
+	PopoverContent,
 } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
 import * as actions from "@/actions";
 
 export default function HeaderAuth() {
-    const session = useSession();
-    let authContent: React.ReactNode;
-    if (session.status === "loading") {
-        authContent = null;
-    }
-	else if (session.data?.user) {
-		authContent = <Popover placement="left">
-			<PopoverTrigger>
-				<Avatar src={session.data.user.image || ""} />
-			</PopoverTrigger>
-			<PopoverContent>
-				<div className="p-4">
-					<form action={actions.signOut}>
-						<Button type="submit" color="danger" variant="flat">
-							Sign Out
-						</Button>
-					</form>
-				</div>
-			</PopoverContent>
-		</Popover>
+	const session = useSession();
+	let authContent: React.ReactNode;
+	if (session.status === "loading") {
+		authContent = null;
+	} else if (session.data?.user) {
+		authContent = (
+			<Popover placement="left">
+				<PopoverTrigger>
+					<Avatar src={session.data.user.image || ""} />
+				</PopoverTrigger>
+				<PopoverContent className="bg-dark-500">
+					<div className="p-4">
+						<form action={actions.signOut}>
+							<Button type="submit" color="danger" variant="flat">
+								Sign Out
+							</Button>
+						</form>
+					</div>
+				</PopoverContent>
+			</Popover>
+		);
 	} else {
 		authContent = (
 			<>
@@ -58,5 +59,5 @@ export default function HeaderAuth() {
 		);
 	}
 
-    return authContent;
+	return authContent;
 }

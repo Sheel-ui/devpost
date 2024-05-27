@@ -11,6 +11,8 @@ import {
 	PopoverContent,
 	PopoverTrigger,
 } from "@nextui-org/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@/utils/iconLibrary";
 
 interface PostCreateFormProps {
 	slug: string;
@@ -27,28 +29,31 @@ export default function PostCreate({ slug }: PostCreateFormProps) {
 	return (
 		<Popover placement="left">
 			<PopoverTrigger>
-				<Button color="primary">Create a Post</Button>
+				<Button
+					variant="bordered"
+					className="border-2 text-accent-100 border-accent-100"
+				>
+					<FontAwesomeIcon icon={faPlus} />
+					Create a Post
+				</Button>
 			</PopoverTrigger>
-			<PopoverContent>
+			<PopoverContent className="bg-dark-500 text-snow">
 				<form action={action}>
-					<div className="flex flex-col gap-4 p-4 w-80">
+					<div className="flex flex-col gap-4 p-4 w-80 ">
 						<h3 className="text-lg">Create a Post</h3>
-
 						<Input
 							isInvalid={!!formState.errors.title}
 							errorMessage={formState.errors.title?.join(", ")}
 							name="title"
-							label="Title"
-							labelPlacement="outside"
 							placeholder="Title"
+							variant="bordered"
 						/>
 						<Textarea
 							isInvalid={!!formState.errors.content}
 							errorMessage={formState.errors.content?.join(", ")}
 							name="content"
-							label="Content"
-							labelPlacement="outside"
 							placeholder="Content"
+							variant="bordered"
 						/>
 
 						{formState.errors._form ? (
