@@ -53,7 +53,7 @@ export default function TopicCreate() {
 							color="success"
 						/>
 						{formState.errors._form ? (
-							<div className="p-2 bg-red-200 border border-red-400 rounded text-red-400">
+							<div className="text-red-400 text-xs">
 								{formState.errors._form.join(", ")}
 							</div>
 						) : null}
